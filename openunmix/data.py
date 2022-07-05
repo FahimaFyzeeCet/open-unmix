@@ -21,6 +21,7 @@ def load_info(path: str) -> dict:
         `samplerate`, `samples` and `duration` in seconds
 
     """
+    print("Calling load_info")
     # get length of file in samples
     if torchaudio.get_audio_backend() == "sox":
         raise RuntimeError("Deprecated backend is not supported")
@@ -51,6 +52,7 @@ def load_audio(
     Returns:
         Tensor: torch tensor waveform of shape `(num_channels, num_samples)`
     """
+    print("calling load_audio")
     # loads the full track duration
     if dur is None:
         # we ignore the case where start!=0 and dur=None
@@ -154,6 +156,7 @@ def load_datasets(
     Returns:
         train_dataset, validation_dataset
     """
+    print("calling load_dataset")
     if args.dataset == "aligned":
         parser.add_argument("--input-file", type=str)
         parser.add_argument("--output-file", type=str)
@@ -462,6 +465,7 @@ class SourceFolderDataset(UnmixDataset):
 
     def __getitem__(self, index):
         # For each source draw a random sound and mix them together
+	print("calling _getitem_")
         audio_sources = []
         for source in self.source_folders:
 	    print(source)
@@ -849,6 +853,7 @@ class MUSDBDataset(UnmixDataset):
         self.sample_rate = 44100.0  # musdb is fixed sample rate
 
     def __getitem__(self, index):
+	print("calling _getitem from MUSDB")
         audio_sources = []
         target_ind = None
 
