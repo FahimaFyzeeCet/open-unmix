@@ -84,6 +84,7 @@ def get_statistics(args, encoder, dataset):
 
 
 def main():
+    print("calling main...")    ###added line of code
     parser = argparse.ArgumentParser(description="Open Unmix Trainer")
 
     # which target do we want to train?
