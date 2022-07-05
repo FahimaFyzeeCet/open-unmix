@@ -464,7 +464,7 @@ class SourceFolderDataset(UnmixDataset):
         # For each source draw a random sound and mix them together
         audio_sources = []
         for source in self.source_folders:
-	    print(source);
+	    print(source)
             if self.split == "valid":
                 # provide deterministic behaviour for validation so that
                 # each epoch, the same tracks are yielded
