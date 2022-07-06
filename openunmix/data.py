@@ -465,7 +465,7 @@ class SourceFolderDataset(UnmixDataset):
 
     def __getitem__(self, index):
         # For each source draw a random sound and mix them together
-	print("calling _getitem_")
+	#print("calling _getitem_")
         audio_sources = []
         for source in self.source_folders:
 	    print(source)
