@@ -211,6 +211,7 @@ def main():
     dataloader_kwargs = {"num_workers": args.nb_workers, "pin_memory": True} if use_cuda else {}
 
     repo_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    print(repo_dir)
     repo = Repo(repo_dir)
     commit = repo.head.commit.hexsha[:7]
 
@@ -221,6 +222,9 @@ def main():
     device = torch.device("cuda" if use_cuda else "cpu")
 
     train_dataset, valid_dataset, args = data.load_datasets(parser, args)
+    print("Printing train or valid dataset...") ###added comments
+    print(train_dataset)
+    print(valid_dataset)
 
     # create output dir if not exist
     target_path = Path(args.output)
