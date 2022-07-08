@@ -239,6 +239,7 @@ def main():
     )
     print("printing train_sampler")
     print(train_sampler)
+    print(len(train_sampler))
     valid_sampler = torch.utils.data.DataLoader(valid_dataset, batch_size=1, **dataloader_kwargs)
     print("printing valid_sampler")
     print(valid_sampler)
