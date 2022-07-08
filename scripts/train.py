@@ -249,6 +249,8 @@ def main():
         n_fft=args.nfft, n_hop=args.nhop, sample_rate=train_dataset.sample_rate
     )
     encoder = torch.nn.Sequential(stft, model.ComplexNorm(mono=args.nb_channels == 1)).to(device)
+    print("printing endocoder")
+    print(encoder)
 
     separator_conf = {
         "nfft": args.nfft,
@@ -256,6 +258,8 @@ def main():
         "sample_rate": train_dataset.sample_rate,
         "nb_channels": args.nb_channels,
     }
+    print("printing separator_conf")
+    print(separator_conf)
 
     with open(Path(target_path, "separator.json"), "w") as outfile:
         outfile.write(json.dumps(separator_conf, indent=4, sort_keys=True))
