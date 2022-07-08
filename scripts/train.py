@@ -224,6 +224,7 @@ def main():
     train_dataset, valid_dataset, args = data.load_datasets(parser, args)
     print("Printing train or valid dataset...") ###added comments
     print(train_dataset)
+    print("sample print")
     #print(valid_dataset)
 
     # create output dir if not exist
