@@ -224,11 +224,14 @@ def main():
     train_dataset, valid_dataset, args = data.load_datasets(parser, args)
     print("Printing train or valid dataset...") ###added comments
     print(train_dataset)
-    print("sample print")
-    #print(valid_dataset)
+    print("train_dataset printed")
+    print(valid_dataset)
+    print("valid_dataset printed")
 
     # create output dir if not exist
     target_path = Path(args.output)
+    print("printing target_path")
+    print(target_path)
     target_path.mkdir(parents=True, exist_ok=True)
 
     train_sampler = torch.utils.data.DataLoader(
