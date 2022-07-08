@@ -243,6 +243,7 @@ def main():
     valid_sampler = torch.utils.data.DataLoader(valid_dataset, batch_size=1, **dataloader_kwargs)
     print("printing valid_sampler")
     print(valid_sampler)
+    print(len(valid_sampler))
 
     stft, _ = transforms.make_filterbanks(
         n_fft=args.nfft, n_hop=args.nhop, sample_rate=train_dataset.sample_rate
