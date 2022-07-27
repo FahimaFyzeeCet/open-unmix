@@ -12,8 +12,9 @@ import os
 import copy
 import torchaudio
 
-import data
+#import data
 
+from openunmix import data1
 #from openunmix import data
 from openunmix import model
 from openunmix import utils
