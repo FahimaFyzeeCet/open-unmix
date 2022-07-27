@@ -13,7 +13,7 @@ import copy
 import torchaudio
 
 #import data
-from data1 import *
+from data import *
 
 #from openunmix import data1
 #from openunmix import data
