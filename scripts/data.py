@@ -473,6 +473,8 @@ class SourceFolderDataset(UnmixDataset):
                 random.seed(index)
 
             # select a random track for each source
+            print("printing self.source_tracks[source]")
+            print(self.source_tracks[source])
             source_path = random.choice(self.source_tracks[source])
             duration = load_info(source_path)["duration"]
             if self.random_chunks:
@@ -499,8 +501,8 @@ class SourceFolderDataset(UnmixDataset):
     def get_tracks(self):
         """Loads input and output tracks"""
         p = Path(self.root, self.split)
-        #source_tracks = {}
-        source_tracks = []
+        source_tracks = {}
+        #source_tracks = []
         for source_folder in tqdm.tqdm(self.source_folders):
             tracks = []
             source_path = p / source_folder
