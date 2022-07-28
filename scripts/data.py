@@ -462,11 +462,11 @@ class SourceFolderDataset(UnmixDataset):
 
     def __getitem__(self, index):
         # For each source draw a random sound and mix them together
-        print("printing audio sources")
+        #print("printing audio sources")
         audio_sources = []
         for source in self.source_folders:
-            print("printing sources")
-            print(source)
+            #print("printing sources")
+            #print(source)
             if self.split == "valid":
                 # provide deterministic behaviour for validation so that
                 # each epoch, the same tracks are yielded
@@ -506,11 +506,11 @@ class SourceFolderDataset(UnmixDataset):
         for source_folder in tqdm.tqdm(self.source_folders):
             tracks = []
             source_path = p / source_folder
-            print("printing source_path = p/source_folder")
-            print(source_path)
+            #print("printing source_path = p/source_folder")
+            #print(source_path)
             for source_track_path in sorted(source_path.glob("*" + self.ext)):
-                print("printing source_track_path")
-                print(source_track_path)
+                #print("printing source_track_path")
+                #print(source_track_path)
                 if self.seq_duration is not None:
                     info = load_info(source_track_path)
                     # get minimum duration of track
