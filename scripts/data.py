@@ -509,6 +509,8 @@ class SourceFolderDataset(UnmixDataset):
             print("printing source_path = p/source_folder")
             print(source_path)
             for source_track_path in sorted(source_path.glob("*" + self.ext)):
+                print("printing source_track_path")
+                print(source_track_path)
                 if self.seq_duration is not None:
                     info = load_info(source_track_path)
                     # get minimum duration of track
