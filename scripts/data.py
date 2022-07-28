@@ -473,8 +473,8 @@ class SourceFolderDataset(UnmixDataset):
                 random.seed(index)
 
             # select a random track for each source
-            print("printing self.source_tracks[source]")
-            print(self.source_tracks[source])
+            #print("printing self.source_tracks[source]")
+            #print(self.source_tracks[source])
             source_path = random.choice(self.source_tracks[source])
             duration = load_info(source_path)["duration"]
             if self.random_chunks:
