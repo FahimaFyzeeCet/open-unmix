@@ -503,6 +503,8 @@ class SourceFolderDataset(UnmixDataset):
         for source_folder in tqdm.tqdm(self.source_folders):
             tracks = []
             source_path = p / source_folder
+            print("printing source_path = p/source_folder")
+            print(source_path)
             for source_track_path in sorted(source_path.glob("*" + self.ext)):
                 if self.seq_duration is not None:
                     info = load_info(source_track_path)
