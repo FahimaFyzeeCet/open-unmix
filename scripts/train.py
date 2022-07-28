@@ -225,7 +225,7 @@ def main():
 
     device = torch.device("cuda" if use_cuda else "cpu")
 
-    train_dataset, valid_dataset, args = data.load_datasets(parser, args)
+    train_dataset, valid_dataset, args = load_datasets(parser, args)
     print("Printing train or valid dataset...") ###added comments
     print(train_dataset)
     print("train_dataset printed")
