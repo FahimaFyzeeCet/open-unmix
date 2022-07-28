@@ -62,7 +62,7 @@ def get_statistics(args, encoder, dataset):
     scaler = sklearn.preprocessing.StandardScaler()
 
     dataset_scaler = copy.deepcopy(dataset)
-    if isinstance(dataset_scaler, data.SourceFolderDataset):
+    if isinstance(dataset_scaler, SourceFolderDataset):
         dataset_scaler.random_chunks = False
     else:
         dataset_scaler.random_chunks = False
