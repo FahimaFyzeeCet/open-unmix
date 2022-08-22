@@ -19,6 +19,12 @@ from openunmix import transforms
 
 tqdm.monitor_interval = 0
 
+#extra imports
+import librosa
+import librosa.display
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 def train(args, unmix, encoder, device, train_sampler, optimizer):
     losses = utils.AverageMeter()
@@ -34,8 +40,15 @@ def train(args, unmix, encoder, device, train_sampler, optimizer):
         #print("printing Y",Y)
         #print("printing Y_hat",Y_hat)
         
+        plt.figure(figsize=(12, 4))
         librosa.display.specshow(librosa.amplitude_to_db(Y, ref=np.max), y_axis='mel', x_axis='time', sr=44100)
+        plt.colorbar()
+        plt.tight_layout()
+        
+        plt.figure(figsize=(12, 4))
         librosa.display.specshow(librosa.amplitude_to_db(Y_hat, ref=np.max), y_axis='mel', x_axis='time', sr=44100)
+        plt.colorbar()
+        plt.tight_layout()
         
         
         loss = torch.nn.functional.mse_loss(Y_hat, Y)
