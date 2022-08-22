@@ -31,6 +31,8 @@ def train(args, unmix, encoder, device, train_sampler, optimizer):
         X = encoder(x)
         Y_hat = unmix(X)
         Y = encoder(y)
+        print("printing Y",Y)
+        print("printing Y_hat",Y_hat)
         loss = torch.nn.functional.mse_loss(Y_hat, Y)
         loss.backward()
         optimizer.step()
