@@ -37,9 +37,10 @@ def train(args, unmix, encoder, device, train_sampler, optimizer):
         X = encoder(x)
         Y_hat = unmix(X)
         Y = encoder(y)
-        #print("printing Y",Y)
-        #print("printing Y_hat",Y_hat)
+        print("printing Y",len(Y))
+        print("printing Y_hat",len(Y_hat))
         
+        """
         plt.figure(figsize=(12, 4))
         librosa.display.specshow(librosa.amplitude_to_db(Y, ref=np.max), y_axis='mel', x_axis='time', sr=44100)
         plt.colorbar()
@@ -49,7 +50,7 @@ def train(args, unmix, encoder, device, train_sampler, optimizer):
         librosa.display.specshow(librosa.amplitude_to_db(Y_hat, ref=np.max), y_axis='mel', x_axis='time', sr=44100)
         plt.colorbar()
         plt.tight_layout()
-        
+        """
         
         loss = torch.nn.functional.mse_loss(Y_hat, Y)
         loss.backward()
