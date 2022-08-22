@@ -39,6 +39,8 @@ def train(args, unmix, encoder, device, train_sampler, optimizer):
         Y = encoder(y)
         print("printing Y",len(Y))
         print("printing Y_hat",len(Y_hat))
+        print("printing Y shape",Y.shape)
+        print("printing Y_hat shape",Y_hat.shape)
         
         """
         plt.figure(figsize=(12, 4))
