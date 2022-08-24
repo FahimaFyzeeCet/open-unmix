@@ -2,7 +2,9 @@ import pytest
 import numpy as np
 import torchaudio
 
-from openunmix import data
+#from openunmix import data 
+
+from data02 import *
 
 
 @pytest.fixture(params=["soundfile", "sox_io"])
