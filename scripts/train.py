@@ -226,40 +226,40 @@ def main():
     device = torch.device("cuda" if use_cuda else "cpu")
 
     train_dataset, valid_dataset, args = load_datasets(parser, args)
-    print("Printing train or valid dataset...") ###added comments
-    print(train_dataset)
-    print("train_dataset printed")
-    print(valid_dataset)
-    print("valid_dataset printed")
+    #print("Printing train or valid dataset...") ###added comments
+    #print(train_dataset)
+    #print("train_dataset printed")
+    #print(valid_dataset)
+    #print("valid_dataset printed")
 
     # create output dir if not exist
     target_path = Path(args.output)
-    print("printing target_path")
-    print(target_path)
+    #print("printing target_path")
+    #print(target_path)
     target_path.mkdir(parents=True, exist_ok=True)
 
     train_sampler = torch.utils.data.DataLoader(
         train_dataset, batch_size=args.batch_size, shuffle=True, **dataloader_kwargs
     )
-    print("printing train_sampler")
-    print(train_sampler)
-    print(len(train_sampler))
+    #print("printing train_sampler")
+    #print(train_sampler)
+    #print(len(train_sampler))
     valid_sampler = torch.utils.data.DataLoader(valid_dataset, batch_size=1, **dataloader_kwargs)
-    print("printing valid_sampler")
-    print(valid_sampler)
-    print(len(valid_sampler))
+    #print("printing valid_sampler")
+    #print(valid_sampler)
+    #print(len(valid_sampler))
 
     stft, _ = transforms.make_filterbanks(
         n_fft=args.nfft, n_hop=args.nhop, sample_rate=train_dataset.sample_rate
     )
     encoder = torch.nn.Sequential(stft, model.ComplexNorm(mono=args.nb_channels == 1)).to(device)
-    print("printing endocoder")
-    print(encoder)
+    #print("printing endocoder")
+    #print(encoder)
 
     separator_conf = {
         "nfft": args.nfft,
         "nhop": args.nhop,
-        "sample_rate": train_dataset.sample_rate,
+        "sample_rate": train_dataset.sample_rate,   # change this to 48000
         "nb_channels": args.nb_channels,
     }
     print("printing separator_conf")
@@ -291,8 +291,9 @@ def main():
             nb_channels=args.nb_channels,
             hidden_size=args.hidden_size,
             max_bin=max_bin,
-        ).to(device)
-
+        ).to(device) 
+    
+    
     optimizer = torch.optim.Adam(unmix.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
