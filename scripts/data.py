@@ -423,7 +423,7 @@ class SourceFolderDataset(UnmixDataset):
         nb_samples: int = 1000,
         seq_duration: Optional[float] = None,
         random_chunks: bool = True,
-        sample_rate: float = 44100.0,
+        sample_rate: float = 48000.0,
         source_augmentations: Optional[Callable] = lambda audio: audio,
         seed: int = 42,
     ) -> None:
