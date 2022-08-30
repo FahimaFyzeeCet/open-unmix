@@ -317,6 +317,7 @@ def main():
         optimizer.load_state_dict(checkpoint["optimizer"])
         scheduler.load_state_dict(checkpoint["scheduler"])
         # train for another epochs_trained
+        print(results["epochs_trained"])
         t = tqdm.trange(
             results["epochs_trained"],
             results["epochs_trained"] + args.epochs + 1,
