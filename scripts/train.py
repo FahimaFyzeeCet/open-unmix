@@ -338,6 +338,8 @@ def main():
         best_epoch = 0
 
     for epoch in t:
+        print("t : ", t)
+        print("epoch : ", epoch)
         t.set_description("Training epoch")
         end = time.time()
         train_loss = train(args, unmix, encoder, device, train_sampler, optimizer)
